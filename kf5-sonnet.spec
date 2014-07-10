@@ -27,6 +27,8 @@ BuildRequires:	hunspell-devel
 BuildRequires:	kf5-extra-cmake-modules >= 1.0.0
 BuildRequires:	qt5-linguist
 BuildRequires:	rpmbuild(macros) >= 1.164
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
