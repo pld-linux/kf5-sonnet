@@ -8,7 +8,7 @@
 Summary:	Multi-language spell checker
 Name:		kf5-%{kfname}
 Version:	5.4.0
-Release:	0.1
+Release:	0.2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -88,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libKF5SonnetUi.so.5
 %attr(755,root,root) %{_libdir}/libKF5SonnetUi.so.5.4.0
 %dir %{qt5dir}/plugins/kf5/sonnet
-%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/aspell.so
+#%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/aspell.so
 %attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/hspell.so
 %attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/hunspell.so
 %dir %{_datadir}/kf5/sonnet
