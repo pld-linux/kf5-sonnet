@@ -1,5 +1,4 @@
 # TODO:
-# - dir /usr/include/KF5 not packaged
 # - fix build with aspell
 %define		kdeframever	5.10
 %define		qtver		5.3.2
@@ -8,7 +7,7 @@
 Summary:	Multi-language spell checker
 Name:		kf5-%{kfname}
 Version:	5.10.0
-Release:	0.1
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
