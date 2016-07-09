@@ -1,18 +1,17 @@
 # TODO:
 # - fix build with aspell
-%define		kdeframever	5.19
+%define		kdeframever	5.23
 %define		qtver		5.3.2
 %define		kfname		sonnet
 
 Summary:	Multi-language spell checker
 Name:		kf5-%{kfname}
-Version:	5.19.0
-Release:	2
+Version:	5.23.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	08106da14942ebdfe0b901e649c20d7c
-Patch0:		findhunspell-1.4.patch
+# Source0-md5:	a557695b926c0857a4aba81c43879242
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -28,6 +27,7 @@ BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	zlib-devel
+Requires:	kf5-dirs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		qt5dir		%{_libdir}/qt5
@@ -57,7 +57,6 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 
 %prep
 %setup -q -n %{kfname}-%{version}
-%patch0 -p1
 
 %build
 install -d build
@@ -84,6 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kfname}5_qt.lang
 %defattr(644,root,root,755)
 %doc README.md
+%attr(755,root,root) %{_bindir}/parsetrigrams
 %attr(755,root,root) %ghost %{_libdir}/libKF5SonnetCore.so.5
 %attr(755,root,root) %{_libdir}/libKF5SonnetCore.so.*.*
 %attr(755,root,root) %ghost %{_libdir}/libKF5SonnetUi.so.5
