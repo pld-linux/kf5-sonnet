@@ -1,0 +1,11 @@
+--- sonnet-5.24.0/cmake/FindHUNSPELL.cmake~	2016-07-03 11:30:50.000000000 +0200
++++ sonnet-5.24.0/cmake/FindHUNSPELL.cmake	2017-04-22 01:07:50.309650961 +0200
+@@ -14,7 +14,7 @@
+ 
+ FIND_PATH(HUNSPELL_INCLUDE_DIR hunspell/hunspell.hxx )
+ 
+-FIND_LIBRARY(HUNSPELL_LIBRARIES NAMES hunspell-1.4 hunspell-1.3 hunspell-1.2)
++FIND_LIBRARY(HUNSPELL_LIBRARIES NAMES hunspell-1.6 hunspell-1.4 hunspell-1.3 hunspell-1.2)
+ 
+ # handle the QUIETLY and REQUIRED arguments and set HUNSPELL_FOUND to TRUE if 
+ # all listed variables are TRUE

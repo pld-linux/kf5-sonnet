@@ -7,11 +7,12 @@
 Summary:	Multi-language spell checker
 Name:		kf5-%{kfname}
 Version:	5.24.0
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	2b6d47648a14410eb236d5fe2923600d
+Patch0:		hunspell-1.6.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -57,6 +58,7 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 
 %prep
 %setup -q -n %{kfname}-%{version}
+%patch0 -p1
 
 %build
 install -d build
