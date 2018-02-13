@@ -1,17 +1,17 @@
 # TODO:
 # - fix build with aspell
-%define		kdeframever	5.39
+%define		kdeframever	5.43
 %define		qtver		5.3.2
 %define		kfname		sonnet
 
 Summary:	Multi-language spell checker
 Name:		kf5-%{kfname}
-Version:	5.39.0
+Version:	5.43.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	a1f3ae89feb7e344c51b5288d12796fa
+# Source0-md5:	366495c4aab66b740a25363c53fde6c2
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -90,9 +90,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libKF5SonnetUi.so.5
 %attr(755,root,root) %{_libdir}/libKF5SonnetUi.so.*.*
 %dir %{qt5dir}/plugins/kf5/sonnet
-#%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/aspell.so
-%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/hspell.so
-%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/hunspell.so
+%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_aspell.so
+%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_hspell.so
+%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_hunspell.so
 %dir %{_datadir}/kf5/sonnet
 %{_datadir}/kf5/sonnet/trigrams.map
 /etc/xdg/sonnet.categories
