@@ -7,7 +7,7 @@
 Summary:	Multi-language spell checker
 Name:		kf5-%{kfname}
 Version:	5.48.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -17,6 +17,7 @@ BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
+BuildRequires:	aspell
 BuildRequires:	aspell-devel
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	hspell-devel
@@ -25,6 +26,7 @@ BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
 BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	libvoikko-devel
 BuildRequires:	xz
 BuildRequires:	zlib-devel
 Requires:	kf5-dirs
@@ -93,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_aspell.so
 %attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_hspell.so
 %attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_hunspell.so
+%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_voikko.so
 %dir %{_datadir}/kf5/sonnet
 %{_datadir}/kf5/sonnet/trigrams.map
 /etc/xdg/sonnet.categories
