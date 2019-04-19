@@ -22,7 +22,7 @@ BuildRequires:	aspell-devel
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	hspell-devel
 BuildRequires:	hunspell-devel
-BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
+BuildRequires:	kf5-extra-cmake-modules >= 5.56
 BuildRequires:	ninja
 BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
