@@ -1,7 +1,7 @@
 # TODO:
 # - fix build with aspell
 %define		kdeframever	5.56
-%define		qtver		5.9.0
+%define		qtver		5.10.0
 %define		kfname		sonnet
 
 Summary:	Multi-language spell checker
@@ -19,15 +19,15 @@ BuildRequires:	Qt5Test-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	aspell
 BuildRequires:	aspell-devel
-BuildRequires:	cmake >= 2.8.12
+BuildRequires:	cmake >= 3.5
 BuildRequires:	hspell-devel
 BuildRequires:	hunspell-devel
 BuildRequires:	kf5-extra-cmake-modules >= 5.56
+BuildRequires:	libvoikko-devel
 BuildRequires:	ninja
 BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	libvoikko-devel
 BuildRequires:	xz
 BuildRequires:	zlib-devel
 Requires:	kf5-dirs
@@ -78,8 +78,8 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files -f %{kfname}5_qt.lang
 %defattr(644,root,root,755)
