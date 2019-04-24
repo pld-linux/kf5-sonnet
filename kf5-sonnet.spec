@@ -5,6 +5,7 @@
 %define		kfname		sonnet
 
 Summary:	Multi-language spell checker
+Summary(pl.UTF-8):	Wielojęzyczne narzędzie do sprawdzania pisowni
 Name:		kf5-%{kfname}
 Version:	5.56.0
 Release:	1
@@ -38,13 +39,24 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Sonnet is a plugin-based spell checking library for Qt-based
 applications. It supports several different plugins, including HSpell,
-Enchant, ASpell and HUNSPELL.
+ASpell and HUNSPELL.
 
 It also supports automated language detection, based on a combination
 of different algorithms.
 
 The simplest way to use Sonnet in your application is to use the
 SpellCheckDecorator class on your QTextEdit.
+
+%description -l pl.UTF-8
+Sonnet to oparta na wtyczkach biblioteka do sprawdzania pisowni dla
+aplikacji opartych na Qt. Obsługuje kilka różnych wtyzek, w tym
+HSpell, ASpell i HUNSPELL.
+
+Pozwala automatycznie wykrywać język w oparciu o połączenie różnych
+algorytmów.
+
+Najprostszy sposób użycia Sonneta w aplikacji to użycie klasy
+SpellCheckDecorator w obiekcie QTextEdit.
 
 %package devel
 Summary:	Header files for %{kfname} development
