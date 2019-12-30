@@ -1,18 +1,18 @@
 # TODO:
 # - fix build with aspell
-%define		kdeframever	5.62
+%define		kdeframever	5.65
 %define		qtver		5.10.0
 %define		kfname		sonnet
 
 Summary:	Multi-language spell checker
 Summary(pl.UTF-8):	Wielojęzyczne narzędzie do sprawdzania pisowni
 Name:		kf5-%{kfname}
-Version:	5.62.0
+Version:	5.65.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	dd31cab2087eaf42b6db03e472d71af7
+# Source0-md5:	cc6d393858d809902be1b872a0e572c8
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -107,8 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_hspell.so
 %attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_hunspell.so
 %attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_voikko.so
-%dir %{_datadir}/kf5/sonnet
-%{_datadir}/kf5/sonnet/trigrams.map
+%attr(755,root,root) %{qt5dir}/plugins/designer/sonnetui5widgets.so
 %{_datadir}/qlogging-categories5/sonnet.categories
 
 %files devel
