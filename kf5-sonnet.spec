@@ -23,7 +23,7 @@ BuildRequires:	aspell-devel
 BuildRequires:	cmake >= 3.5
 BuildRequires:	hspell-devel
 BuildRequires:	hunspell-devel
-BuildRequires:	kf5-extra-cmake-modules >= 5.56
+BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	libvoikko-devel
 BuildRequires:	ninja
 BuildRequires:	qt5-linguist >= %{qtver}
