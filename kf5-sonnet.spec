@@ -1,7 +1,7 @@
 # TODO:
 # - fix build with aspell
 %define		kdeframever	5.86
-%define		qtver		5.14.0
+%define		qtver		5.15.2
 %define		kfname		sonnet
 
 Summary:	Multi-language spell checker
@@ -19,7 +19,7 @@ BuildRequires:	Qt5Test-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	aspell
 BuildRequires:	aspell-devel
-BuildRequires:	cmake >= 3.5
+BuildRequires:	cmake >= 3.16
 BuildRequires:	hspell-devel
 BuildRequires:	hunspell-devel
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
