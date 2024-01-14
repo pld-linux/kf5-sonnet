@@ -3,19 +3,19 @@
 %bcond_with	tests		# build with tests
 # TODO:
 # - fix build with aspell
-%define		kdeframever	5.113
+%define		kdeframever	5.114
 %define		qtver		5.15.2
 %define		kfname		sonnet
 
 Summary:	Multi-language spell checker
 Summary(pl.UTF-8):	Wielojęzyczne narzędzie do sprawdzania pisowni
 Name:		kf5-%{kfname}
-Version:	5.113.0
+Version:	5.114.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	80f6fbb2005c4d1bd82407642bdd156d
+# Source0-md5:	57b2211d1c7ed7b6fce10912791399db
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
