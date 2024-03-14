@@ -3,23 +3,23 @@
 %bcond_with	tests		# build with tests
 # TODO:
 # - fix build with aspell
-%define		kdeframever	5.249.0
+%define		kdeframever	5.114
 %define		qtver		5.15.2
 %define		kfname		sonnet
 
 Summary:	Multi-language spell checker
 Summary(pl.UTF-8):	Wielojęzyczne narzędzie do sprawdzania pisowni
 Name:		kf5-%{kfname}
-Version:	5.249.0
-Release:	0.1
+Version:	5.114.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	e4649ad0401b11143f8dd3ec4e358619
+Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	57b2211d1c7ed7b6fce10912791399db
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6Test-devel >= %{qtver}
-BuildRequires:	Qt6Widgets-devel >= %{qtver}
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5Test-devel >= %{qtver}
+BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	aspell
 BuildRequires:	aspell-devel
 BuildRequires:	cmake >= 3.16
@@ -28,17 +28,17 @@ BuildRequires:	hunspell-devel
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	libvoikko-devel
 BuildRequires:	ninja
-BuildRequires:	qt6-linguist >= %{qtver}
+BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	zlib-devel
-Requires:	Qt6Core >= %{qtver}
-Requires:	Qt6Widgets >= %{qtver}
+Requires:	Qt5Core >= %{qtver}
+Requires:	Qt5Widgets >= %{qtver}
 Requires:	kf5-dirs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		qt6dir		%{_libdir}/qt6
+%define		qt5dir		%{_libdir}/qt5
 
 %description
 Sonnet is a plugin-based spell checking library for Qt-based
@@ -56,8 +56,8 @@ Sonnet to oparta na wtyczkach biblioteka do sprawdzania pisowni dla
 aplikacji opartych na Qt. Obsługuje kilka różnych wtyzek, w tym
 HSpell, ASpell i HUNSPELL.
 
-Pozwala automatycznie wykrywać język w oparciu o połączenie
-różnych algorytmów.
+Pozwala automatycznie wykrywać język w oparciu o połączenie różnych
+algorytmów.
 
 Najprostszy sposób użycia Sonneta w aplikacji to użycie klasy
 SpellCheckDecorator w obiekcie QTextEdit.
@@ -67,7 +67,7 @@ Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	Qt6Core-devel >= %{qtver}
+Requires:	Qt5Core-devel >= %{qtver}
 
 %description devel
 Header files for %{kfname} development.
@@ -95,7 +95,7 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
 
-%find_lang %{kfname}6_qt --with-qm --all-name --with-kde
+%find_lang %{kfname}5_qt --with-qm --all-name --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -103,33 +103,35 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f %{kfname}6_qt.lang
+%files -f %{kfname}5_qt.lang
 %defattr(644,root,root,755)
 %doc README.md
-%attr(755,root,root) %{_bindir}/parsetrigrams6
-%ghost %{_libdir}/libKF6SonnetCore.so.6
-%attr(755,root,root) %{_libdir}/libKF6SonnetCore.so.*.*
-%ghost %{_libdir}/libKF6SonnetUi.so.6
-%attr(755,root,root) %{_libdir}/libKF6SonnetUi.so.*.*
-%dir %{qt6dir}/plugins/kf6/sonnet
-%attr(755,root,root) %{qt6dir}/plugins/kf6/sonnet/sonnet_aspell.so
-%attr(755,root,root) %{qt6dir}/plugins/kf6/sonnet/sonnet_hspell.so
-%attr(755,root,root) %{qt6dir}/plugins/kf6/sonnet/sonnet_hunspell.so
-%attr(755,root,root) %{qt6dir}/plugins/kf6/sonnet/sonnet_voikko.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/designer/sonnet6widgets.so
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/sonnet/libsonnetquickplugin.so
-%dir %{_libdir}/qt6/qml/org/kde/sonnet
-%{_libdir}/qt6/qml/org/kde/sonnet/qmldir
-%{_libdir}/qt6/qml/org/kde/sonnet/kde-qmlmodule.version
-%{_libdir}/qt6/qml/org/kde/sonnet/sonnetquickplugin.qmltypes
-%{_datadir}/qlogging-categories6/sonnet.categories
-%{_datadir}/qlogging-categories6/sonnet.renamecategories
+%attr(755,root,root) %{_bindir}/gentrigrams
+%attr(755,root,root) %{_bindir}/parsetrigrams
+%ghost %{_libdir}/libKF5SonnetCore.so.5
+%attr(755,root,root) %{_libdir}/libKF5SonnetCore.so.*.*
+%ghost %{_libdir}/libKF5SonnetUi.so.5
+%attr(755,root,root) %{_libdir}/libKF5SonnetUi.so.*.*
+%dir %{qt5dir}/plugins/kf5/sonnet
+%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_aspell.so
+%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_hspell.so
+%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_hunspell.so
+%attr(755,root,root) %{qt5dir}/plugins/kf5/sonnet/sonnet_voikko.so
+%attr(755,root,root) %{_libdir}/qt5/qml/org/kde/sonnet/libsonnetquickplugin.so
+%dir %{_libdir}/qt5/qml/org/kde/sonnet
+%{_libdir}/qt5/qml/org/kde/sonnet/plugins.qmltypes
+%{_libdir}/qt5/qml/org/kde/sonnet/qmldir
+%attr(755,root,root) %{qt5dir}/plugins/designer/sonnetui5widgets.so
+%{_datadir}/qlogging-categories5/sonnet.categories
+%{_datadir}/qlogging-categories5/sonnet.renamecategories
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KF6/SonnetCore
-%{_includedir}/KF6/SonnetUi
-%{_includedir}/KF6/Sonnet
-%{_libdir}/cmake/KF6Sonnet
-%{_libdir}/libKF6SonnetCore.so
-%{_libdir}/libKF6SonnetUi.so
+%{_includedir}/KF5/SonnetCore
+%{_includedir}/KF5/SonnetUi
+%{_includedir}/KF5/Sonnet
+%{_libdir}/cmake/KF5Sonnet
+%{_libdir}/libKF5SonnetCore.so
+%{_libdir}/libKF5SonnetUi.so
+%{qt5dir}/mkspecs/modules/qt_SonnetCore.pri
+%{qt5dir}/mkspecs/modules/qt_SonnetUi.pri
